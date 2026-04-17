@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { LayoutGroup } from "motion/react";
 import { AmbientBackground } from "./components/AmbientBackground";
+import { ClickSpark } from "./components/ClickSpark";
 import { Footer } from "./components/Footer";
 import { FutureVisionSection } from "./components/FutureVisionSection";
 import { GdyniaMap } from "./components/GdyniaMap";
@@ -64,59 +65,73 @@ function App() {
 
   return (
     <div className="relative min-h-screen overflow-hidden">
-      <IntroOverlay isVisible={showIntroOverlay} />
-      <AmbientBackground />
+      <ClickSpark
+        sparkColor="#d7fbff"
+        sparkSize={15}
+        sparkRadius={46}
+        sparkCount={11}
+        duration={560}
+        easing="ease-out"
+        extraScale={1.1}
+      >
+        <IntroOverlay isVisible={showIntroOverlay} />
+        <AmbientBackground />
 
-      <main className="relative z-10">
-        <HeroSection onExploreMap={scrollToMap} onExploreLocations={scrollToCards} />
-        <IntroSection />
-
-        <section
-          ref={mapSectionRef}
-          className="section-shell px-4 py-24 md:px-8 lg:px-10"
-        >
-          <Reveal>
-            <SectionHeading
-              eyebrow="Interaktywna mapa"
-              title="Najważniejsza warstwa projektu: futurystyczna plansza miasta"
-              body="Kliknij pinezkę na mapie, aby otworzyć panel konkretnego miejsca. Zmiana przełącznika czasu aktualizuje obraz oraz narrację wybranego punktu Gdyni."
-            />
-          </Reveal>
-
-          <LayoutGroup>
-            <div className="mt-14 grid gap-6 xl:grid-cols-[1.15fr_0.85fr]">
-              <Reveal delay={0.05}>
-                <GdyniaMap
-                  locations={locations}
-                  activeLocationId={activeLocation.id}
-                  activeTime={activeTime}
-                  onSelectLocation={setActiveLocationId}
-                />
-              </Reveal>
-
-              <Reveal delay={0.1}>
-                <LocationDetailPanel
-                  location={activeLocation}
-                  activeTime={activeTime}
-                  onTimeChange={setActiveTime}
-                />
-              </Reveal>
-            </div>
-          </LayoutGroup>
-        </section>
-
-        <section ref={cardsSectionRef}>
-          <LocationCards
-            locations={locations}
-            activeLocationId={activeLocation.id}
-            onOpenLocation={handleOpenLocation}
+        <main className="relative z-10">
+          <HeroSection
+            onExploreMap={scrollToMap}
+            onExploreLocations={scrollToCards}
+            startCountUp={!showIntroOverlay}
           />
-        </section>
+          <IntroSection />
 
-        <TimelineSection />
-        <FutureVisionSection />
-        <Footer />
-      </main>
+          <section
+            ref={mapSectionRef}
+            className="section-shell px-4 py-24 md:px-8 lg:px-10"
+          >
+            <Reveal>
+              <SectionHeading
+                eyebrow="Interaktywna mapa"
+                title="Najważniejsza warstwa projektu: futurystyczna plansza miasta"
+                body="Kliknij pinezkę na mapie, aby otworzyć panel konkretnego miejsca. Zmiana przełącznika czasu aktualizuje obraz oraz narrację wybranego punktu Gdyni."
+              />
+            </Reveal>
+
+            <LayoutGroup>
+              <div className="mt-14 grid gap-6 xl:grid-cols-[1.15fr_0.85fr]">
+                <Reveal delay={0.05}>
+                  <GdyniaMap
+                    locations={locations}
+                    activeLocationId={activeLocation.id}
+                    activeTime={activeTime}
+                    onSelectLocation={setActiveLocationId}
+                  />
+                </Reveal>
+
+                <Reveal delay={0.1}>
+                  <LocationDetailPanel
+                    location={activeLocation}
+                    activeTime={activeTime}
+                    onTimeChange={setActiveTime}
+                  />
+                </Reveal>
+              </div>
+            </LayoutGroup>
+          </section>
+
+          <section ref={cardsSectionRef}>
+            <LocationCards
+              locations={locations}
+              activeLocationId={activeLocation.id}
+              onOpenLocation={handleOpenLocation}
+            />
+          </section>
+
+          <TimelineSection />
+          <FutureVisionSection />
+          <Footer />
+        </main>
+      </ClickSpark>
     </div>
   );
 }
