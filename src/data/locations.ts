@@ -45,7 +45,7 @@ export const locations: LocationData[] = [
     ],
     images: {
       "1926": photo("KEBAB - PRZESZLOSC.jpg"),
-      "2026": photo("KEBAB - TERAZ.jpg"),
+      "2026": photo("KEBAB - TERAZ.jpeg"),
       "2126": photo("KEBAB - PRZYSZLOSC.png"),
     },
   },
@@ -93,7 +93,7 @@ export const locations: LocationData[] = [
     ],
     images: {
       "1926": photo("FONTANNA - PRZESZLOSC.jpg"),
-      "2026": photo("FONTANNA - TERAZ.jpg"),
+      "2026": photo("FONTANNA - TERAZ.jpeg"),
       "2126": photo("FONTANNA - PRZYSZLOSC.png"),
     },
   },
