@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { AmbientBackground } from "./components/AmbientBackground";
+import { CityChatWidget } from "./components/CityChatWidget";
 import { ClickSpark } from "./components/ClickSpark";
 import { Footer } from "./components/Footer";
 import { FutureVisionSection } from "./components/FutureVisionSection";
@@ -114,6 +115,7 @@ function App() {
           <FutureVisionSection />
           <Footer />
         </main>
+        <CityChatWidget />
       </ClickSpark>
     </div>
   );

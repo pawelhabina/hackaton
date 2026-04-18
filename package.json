@@ -4,12 +4,17 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "concurrently -k \"npm:dev:client\" \"npm:dev:server\"",
+    "dev:client": "vite",
+    "dev:server": "node --watch server/index.mjs",
     "build": "tsc --noEmit && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start": "node server/index.mjs"
   },
   "dependencies": {
     "@types/leaflet": "^1.9.21",
+    "@google/genai": "^1.30.0",
+    "express": "^5.1.0",
     "leaflet": "^1.9.4",
     "lucide-react": "^0.511.0",
     "motion": "^12.23.12",
@@ -22,6 +27,7 @@
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react": "^4.3.4",
+    "concurrently": "^9.2.1",
     "tailwindcss": "^4.1.4",
     "typescript": "^5.7.2",
     "vite": "^6.0.1"

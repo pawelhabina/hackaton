@@ -31,3 +31,9 @@ export type TimelineMilestone = {
   title: string;
   body: string;
 };
+
+export type ChatMessage = {
+  id: string;
+  role: "assistant" | "user";
+  content: string;
+};
