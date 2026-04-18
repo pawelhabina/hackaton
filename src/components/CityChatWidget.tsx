@@ -154,13 +154,13 @@ export function CityChatWidget() {
           </div>
 
           <div className="shrink-0 border-t border-white/10 px-5 py-4">
-            <div className="city-chat-scrollbar mb-3 flex gap-2 overflow-x-auto pb-1">
+            <div className="city-chat-scrollbar mb-3 flex gap-1.5 overflow-x-auto pb-1">
               {quickPrompts.map((prompt) => (
                 <button
                   key={prompt}
                   type="button"
                   onClick={() => void handleSendMessage(prompt)}
-                  className="shrink-0 rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 text-left text-[0.68rem] uppercase tracking-[0.2em] text-slate-200 transition hover:border-cyan-200/20 hover:text-white"
+                  className="shrink-0 rounded-full border border-white/10 bg-white/[0.04] px-2.5 py-1.5 text-left text-[0.48rem] uppercase tracking-[0.17em] text-slate-200 transition hover:border-cyan-200/20 hover:text-white"
                 >
                   {prompt}
                 </button>
@@ -182,9 +182,6 @@ export function CityChatWidget() {
               />
 
               <div className="flex items-center justify-between gap-3">
-                <div className="text-xs leading-5 text-slate-400">
-                  Fakty ustawiasz w pliku `server/chatKnowledge.mjs`.
-                </div>
                 <button
                   type="submit"
                   disabled={isSending || !draft.trim()}

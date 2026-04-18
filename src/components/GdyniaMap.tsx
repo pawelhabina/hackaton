@@ -57,7 +57,7 @@ export function GdyniaMap({
       preferCanvas: true,
     });
 
-    map.setView([54.5178, 18.5326], 12.45);
+    map.setView([54.5178, 18.5326], 16);
 
     L.tileLayer("https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png", {
       minZoom: 0,
@@ -151,7 +151,7 @@ export function GdyniaMap({
         lat: activeLocation.coordinates.lat,
         lng: activeLocation.coordinates.lng,
       },
-      13.1,
+      16,
       {
         duration: 1.2,
         easeLinearity: 0.25,
