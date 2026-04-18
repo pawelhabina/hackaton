@@ -51,9 +51,33 @@ loadEnvFile(path.join(rootDir, ".env.local"));
 loadEnvFile(path.join(__dirname, ".env"));
 loadEnvFile(path.join(__dirname, ".env.local"));
 
-const port = Number(process.env.CHAT_PORT || 8787);
+const port = Number(process.env.PORT || process.env.CHAT_PORT || 8787);
+const allowedOrigins = new Set(
+  String(process.env.CORS_ALLOW_ORIGIN || "")
+    .split(",")
+    .map((origin) => origin.trim())
+    .filter(Boolean),
+);
 
 const app = express();
+
+app.use((request, response, next) => {
+  const origin = request.headers.origin;
+
+  if (origin && allowedOrigins.has(origin)) {
+    response.setHeader("Access-Control-Allow-Origin", origin);
+    response.setHeader("Vary", "Origin");
+    response.setHeader("Access-Control-Allow-Methods", "GET,POST,OPTIONS");
+    response.setHeader("Access-Control-Allow-Headers", "Content-Type");
+  }
+
+  if (request.method === "OPTIONS") {
+    response.sendStatus(origin && allowedOrigins.has(origin) ? 204 : 403);
+    return;
+  }
+
+  next();
+});
 
 app.use(express.json({ limit: "1mb" }));
 

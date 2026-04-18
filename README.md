@@ -16,6 +16,34 @@ npm run build
 npm run preview
 ```
 
+## Osobny frontend i API
+
+Frontend i backend mogą działać na osobnych hostach.
+
+Frontend:
+
+```bash
+VITE_API_BASE_URL=https://api.twoja-domena.pl npm run build
+```
+
+Po buildzie wrzuć zawartość `dist/` na hosting statyczny.
+
+API:
+
+```bash
+GEMINI_API_KEY=...
+CORS_ALLOW_ORIGIN=https://twoja-domena.pl
+PORT=8787
+npm start
+```
+
+Uwagi:
+
+- `VITE_API_BASE_URL` jest wstrzykiwane podczas buildu frontendu
+- `CORS_ALLOW_ORIGIN` może zawierać kilka domen rozdzielonych przecinkami
+- backend obsługuje `PORT` i `CHAT_PORT`
+- jeśli na serwerze API nie ma katalogu `dist/`, Express wystawi samo `/api/*`
+
 ## Struktura katalogów
 
 ```text

@@ -2,6 +2,9 @@ import { FormEvent, useEffect, useRef, useState } from "react";
 import { LoaderCircle, MapPinned, MessageCircleMore, SendHorizonal, X } from "lucide-react";
 import { ChatMessage } from "../lib/types";
 
+const apiBaseUrl = import.meta.env.VITE_API_BASE_URL?.trim().replace(/\/+$/, "") ?? "";
+const chatEndpoint = `${apiBaseUrl}/api/chat`;
+
 const quickPrompts = [
   "W którym roku powstała Gdynia?",
   "Opowiedz mi o Skwerze Kościuszki.",
@@ -16,7 +19,7 @@ const introMessage: ChatMessage = {
 };
 
 async function sendChatRequest(messages: ChatMessage[]) {
-  const response = await fetch("/api/chat", {
+  const response = await fetch(chatEndpoint, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
