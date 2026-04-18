@@ -12,7 +12,7 @@ export function TimeStateSwitcher({
   onChange,
 }: TimeStateSwitcherProps) {
   return (
-    <div className="glass-panel relative flex w-full flex-col gap-2 p-2 md:flex-row md:items-center">
+    <div className="glass-panel relative grid w-full grid-cols-3 gap-2 p-2">
       {timeStates.map((state) => {
         const active = state.key === activeTime;
 
@@ -21,7 +21,7 @@ export function TimeStateSwitcher({
             key={state.key}
             type="button"
             onClick={() => onChange(state.key)}
-            className="relative flex-1 rounded-[1.3rem] px-4 py-3 text-left"
+            className="relative min-h-[5.25rem] rounded-[1.3rem] px-3 py-3 text-center"
           >
             {active ? (
               <motion.span
@@ -30,7 +30,7 @@ export function TimeStateSwitcher({
                 transition={{ type: "spring", stiffness: 320, damping: 28 }}
               />
             ) : null}
-            <span className="relative block">
+            <span className="relative flex h-full flex-col items-center justify-center">
               <span
                 className={`block text-lg font-semibold tracking-[-0.04em] ${
                   active ? "text-white" : "text-slate-300"
@@ -38,7 +38,7 @@ export function TimeStateSwitcher({
               >
                 {state.label}
               </span>
-              <span className="mt-1 block text-xs uppercase tracking-[0.24em] text-slate-400">
+              <span className="mt-1 block text-[10px] uppercase tracking-[0.2em] text-slate-400">
                 {state.subtitle}
               </span>
             </span>

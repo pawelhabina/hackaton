@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import { LayoutGroup } from "motion/react";
 import { AmbientBackground } from "./components/AmbientBackground";
 import { ClickSpark } from "./components/ClickSpark";
 import { Footer } from "./components/Footer";
@@ -9,7 +8,6 @@ import { HeroSection } from "./components/HeroSection";
 import { IntroOverlay } from "./components/IntroOverlay";
 import { IntroSection } from "./components/IntroSection";
 import { LocationCards } from "./components/LocationCards";
-import { LocationDetailPanel } from "./components/LocationDetailPanel";
 import { Reveal } from "./components/Reveal";
 import { SectionHeading } from "./components/SectionHeading";
 import { TimelineSection } from "./components/TimelineSection";
@@ -23,12 +21,9 @@ function App() {
   const mapSectionRef = useRef<HTMLElement | null>(null);
   const cardsSectionRef = useRef<HTMLElement | null>(null);
 
-  const [activeLocationId, setActiveLocationId] = useState<string>(locations[0].id);
+  const [activeLocationId, setActiveLocationId] = useState<string | null>(null);
   const [activeTime, setActiveTime] = useState<TimeKey>("2126");
   const [showIntroOverlay, setShowIntroOverlay] = useState(true);
-
-  const activeLocation =
-    locations.find((location) => location.id === activeLocationId) ?? locations[0];
 
   useEffect(() => {
     const previousOverflow = document.body.style.overflow;
@@ -85,44 +80,31 @@ function App() {
           />
           <IntroSection />
 
-          <section
-            ref={mapSectionRef}
-            className="section-shell px-4 py-24 md:px-8 lg:px-10"
-          >
-            <Reveal>
+          <section ref={mapSectionRef} className="px-4 py-24 md:px-8 lg:px-10">
+            <Reveal className="section-shell">
               <SectionHeading
                 eyebrow="Interaktywna mapa"
-                title="Najważniejsza warstwa projektu: futurystyczna plansza miasta"
-                body="Kliknij pinezkę na mapie, aby otworzyć panel konkretnego miejsca. Zmiana przełącznika czasu aktualizuje obraz oraz narrację wybranego punktu Gdyni."
+                title="Najważniejsza warstwa projektu: jedna szeroka plansza miasta"
+                body="Mapa zajmuje całą szerokość sekcji. Po kliknięciu pinezki pokazują się podstawowe informacje i przycisk do pełnych szczegółów w modalu. Zmiana przełącznika czasu aktualizuje obraz oraz narrację wybranego punktu Gdyni."
               />
             </Reveal>
 
-            <LayoutGroup>
-              <div className="mt-14 grid gap-6 xl:grid-cols-[1.15fr_0.85fr]">
-                <Reveal delay={0.05}>
-                  <GdyniaMap
-                    locations={locations}
-                    activeLocationId={activeLocation.id}
-                    activeTime={activeTime}
-                    onSelectLocation={setActiveLocationId}
-                  />
-                </Reveal>
-
-                <Reveal delay={0.1}>
-                  <LocationDetailPanel
-                    location={activeLocation}
-                    activeTime={activeTime}
-                    onTimeChange={setActiveTime}
-                  />
-                </Reveal>
-              </div>
-            </LayoutGroup>
+            <Reveal delay={0.05} className="mt-14">
+              <GdyniaMap
+                locations={locations}
+                activeLocationId={activeLocationId}
+                activeTime={activeTime}
+                onSelectLocation={setActiveLocationId}
+                onTimeChange={setActiveTime}
+                onClearSelection={() => setActiveLocationId(null)}
+              />
+            </Reveal>
           </section>
 
           <section ref={cardsSectionRef}>
             <LocationCards
               locations={locations}
-              activeLocationId={activeLocation.id}
+              activeLocationId={activeLocationId}
               onOpenLocation={handleOpenLocation}
             />
           </section>

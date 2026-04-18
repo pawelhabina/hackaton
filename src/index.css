@@ -280,6 +280,18 @@ img {
     0 0 60px rgba(64, 168, 255, 0.12);
 }
 
+.hero-map__silk-veil {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 16% 26%, rgba(186, 230, 253, 0.1), transparent 24%),
+    radial-gradient(circle at 78% 28%, rgba(125, 211, 252, 0.08), transparent 22%),
+    linear-gradient(180deg, rgba(5, 12, 22, 0.18), rgba(5, 12, 22, 0.3));
+  backdrop-filter: blur(12px) saturate(1.1);
+}
+
 .intro-overlay {
   position: fixed;
   inset: 0;
@@ -552,6 +564,7 @@ img {
   width: 100%;
   background: #07101d;
   font-family: "Manrope", "Segoe UI", sans-serif;
+  z-index: 0;
 }
 
 .leaflet-tile-pane {

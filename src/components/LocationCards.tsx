@@ -6,7 +6,7 @@ import { SectionHeading } from "./SectionHeading";
 
 type LocationCardsProps = {
   locations: LocationData[];
-  activeLocationId: string;
+  activeLocationId: string | null;
   onOpenLocation: (locationId: string) => void;
 };
 
