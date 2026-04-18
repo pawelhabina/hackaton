@@ -7,15 +7,15 @@ export function Footer() {
             Gdynia 2126
           </div>
           <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-300">
-            Projekt koncepcyjny przygotowany na hackathon. Obrazy są
-            placeholderami gotowymi do wymiany na materiały historyczne,
-            współczesne i futurystyczne wizualizacje miejsc.
+            Projekt koncepcyjny przygotowany na hackathon. Materiały wizualne
+            dla miejsc zostały podpięte z lokalnego zestawu zdjęć i wizualizacji
+            w katalogu `public/photos`.
           </p>
         </div>
 
         <div className="grid gap-1 text-sm text-slate-300 md:text-right">
           <span>Autorzy projektu: zespół hackathonowy</span>
-          <span>Źródła zdjęć: placeholdery `picsum.photos`</span>
+          <span>Źródła zdjęć: lokalne pliki projektu</span>
           <span>Frontend: React + Tailwind CSS + Motion</span>
         </div>
       </div>

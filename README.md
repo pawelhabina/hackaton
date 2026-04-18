@@ -56,15 +56,15 @@ npm run preview
 ## Co zawiera projekt
 
 - pełnoekranowy hero z warstwowym tłem i CTA
-- futurystyczną, interaktywną mapę Gdyni z 6 hotspotami
+- futurystyczną, interaktywną mapę Gdyni z 5 hotspotami
 - panel szczegółów miejsca z przełącznikiem `1926 / 2026 / 2126`
 - sekcję kart lokalizacji, efektowną timeline i część wizjonerską
 - dane miejsc wydzielone do osobnego pliku
-- placeholdery obrazów gotowe do podmiany na właściwe materiały
+- lokalne obrazy i wizualizacje podpięte z katalogu `public/photos`
 
 ## Placeholdery
 
-Obrazy w `src/data/locations.ts` korzystają z deterministycznych placeholderów `picsum.photos`, więc można je łatwo wymienić na prawdziwe fotografie historyczne, współczesne i wizualizacje przyszłości.
+Obrazy w `src/data/locations.ts` korzystają z plików umieszczonych w `public/photos`, więc można je łatwo podmienić na inne fotografie historyczne, współczesne i wizualizacje przyszłości.
 
 ## Mapa
 

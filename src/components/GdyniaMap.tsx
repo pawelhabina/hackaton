@@ -91,8 +91,8 @@ export function GdyniaMap({
           <span class="map-marker__label">${location.name}</span>
         </button>
       `,
-        iconSize: [180, 96],
-        iconAnchor: [90, 76],
+        iconSize: [64, 64],
+        iconAnchor: [32, 24],
       });
 
       const marker = L.marker([location.coordinates.lat, location.coordinates.lng], {
@@ -167,21 +167,18 @@ export function GdyniaMap({
 
       <div className="relative z-20 flex flex-wrap items-center justify-between gap-4 px-2 pb-6 pt-2">
         <div>
-          <div className="text-xs uppercase tracking-[0.32em] text-slate-400">
-            Interaktywna mapa Gdyni
-          </div>
           <div className="mt-3 text-2xl font-semibold tracking-[-0.04em] text-white md:text-3xl">
-            Jedna plansza miasta / kliknij pinezkę, aby zobaczyć podstawy
+            Interaktywna mapa Gdyni
           </div>
         </div>
         <div className="hidden flex-wrap gap-2 md:flex">
           <div className="glass-chip">
             <Orbit className="h-4 w-4 text-cyan-100" />
-            6 hotspotów
+            {locations.length} punktów
           </div>
           <div className="glass-chip">
             <Radar className="h-4 w-4 text-cyan-100" />
-            szczegóły w modalu
+            Informacje o miejscach
           </div>
         </div>
       </div>
@@ -190,16 +187,6 @@ export function GdyniaMap({
         <div ref={containerRef} className="absolute inset-0 z-0" />
         <div className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(circle_at_20%_10%,rgba(164,243,255,0.18),transparent_24%),radial-gradient(circle_at_80%_70%,rgba(59,130,246,0.16),transparent_24%),linear-gradient(180deg,rgba(4,10,20,0.12),rgba(4,10,20,0.58))]" />
         <div className="pointer-events-none absolute inset-0 z-[2] bg-[linear-gradient(rgba(140,180,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(140,180,255,0.08)_1px,transparent_1px)] bg-[size:58px_58px] opacity-35" />
-
-        <div className="pointer-events-none absolute left-[8%] top-[10%] z-20 rounded-full border border-cyan-100/10 bg-slate-950/55 px-3 py-1.5 text-[10px] uppercase tracking-[0.34em] text-cyan-50/75 backdrop-blur-xl">
-          Port gdyński
-        </div>
-        <div className="pointer-events-none absolute left-[38%] top-[24%] z-20 rounded-full border border-cyan-100/10 bg-slate-950/55 px-3 py-1.5 text-[10px] uppercase tracking-[0.34em] text-cyan-50/75 backdrop-blur-xl">
-          Śródmieście
-        </div>
-        <div className="pointer-events-none absolute left-[64%] top-[72%] z-20 rounded-full border border-cyan-100/10 bg-slate-950/55 px-3 py-1.5 text-[10px] uppercase tracking-[0.34em] text-cyan-50/75 backdrop-blur-xl">
-          Orłowo
-        </div>
 
         <div className="pointer-events-none absolute bottom-4 left-4 z-20 flex flex-wrap gap-2">
           <div className="glass-chip">
@@ -249,7 +236,7 @@ export function GdyniaMap({
                     onClick={() => setIsDetailsOpen(true)}
                     className="inline-flex shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-xs font-medium uppercase tracking-[0.22em] text-slate-100 transition hover:border-cyan-200/20 hover:bg-white/[0.06] hover:text-white"
                   >
-                    Tekst
+                    Info
                   </button>
                 </div>
 
@@ -301,7 +288,7 @@ export function GdyniaMap({
               animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               exit={{ opacity: 0, y: 12, filter: "blur(10px)" }}
               transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute inset-x-4 bottom-4 z-[40] md:bottom-6 md:left-6 md:w-[26rem]"
+              className="absolute inset-x-4 bottom-4 z-[40] md:bottom-18 md:left-6 md:w-[26rem]"
             >
               <div className="glass-panel map-selection-hint p-5 md:p-6">
                 <div className="text-xs uppercase tracking-[0.3em] text-slate-400">
@@ -311,8 +298,7 @@ export function GdyniaMap({
                   Kliknij pinezkę na mapie
                 </div>
                 <p className="mt-4 text-sm leading-7 text-slate-300">
-                  Po wyborze punktu pokażę tutaj podstawowe informacje, podgląd
-                  zdjęcia i przycisk do pełnych szczegółów w modalu.
+                  Po wyborze punktu zostaną wyświetlone informacje
                 </p>
               </div>
             </motion.div>

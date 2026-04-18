@@ -20,7 +20,7 @@ export function LocationCards({
       <Reveal>
         <SectionHeading
           eyebrow="Wybrane miejsca"
-          title="Sześć punktów wejścia do Gdyni rozpiętej pomiędzy trzema epokami"
+          title={`${locations.length} punktów wejścia do Gdyni rozpiętej pomiędzy trzema epokami`}
           body="Każda karta prowadzi z powrotem do mapy i aktywuje wybrane miejsce. Układ jest celowo bardziej wystawowy niż katalogowy."
         />
       </Reveal>

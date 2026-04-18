@@ -74,6 +74,7 @@ function App() {
 
         <main className="relative z-10">
           <HeroSection
+            locationCount={locations.length}
             onExploreMap={scrollToMap}
             onExploreLocations={scrollToCards}
             startCountUp={!showIntroOverlay}
@@ -84,8 +85,8 @@ function App() {
             <Reveal className="section-shell">
               <SectionHeading
                 eyebrow="Interaktywna mapa"
-                title="Najważniejsza warstwa projektu: jedna szeroka plansza miasta"
-                body="Mapa zajmuje całą szerokość sekcji. Po kliknięciu pinezki pokazują się podstawowe informacje i przycisk do pełnych szczegółów w modalu. Zmiana przełącznika czasu aktualizuje obraz oraz narrację wybranego punktu Gdyni."
+                title="Mapa miasta z ważnymi punktami"
+                body=""
               />
             </Reveal>
 

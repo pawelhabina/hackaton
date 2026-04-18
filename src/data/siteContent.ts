@@ -23,28 +23,43 @@ export const introCards = [
 export const timelineMilestones: TimelineMilestone[] = [
   {
     year: "1926",
-    title: "Narodziny nowoczesnej Gdyni",
-    body: "Miasto zaczyna działać jak projekt przyszłości: ambitny, portowy, modernistyczny.",
+    title: "Narodziny miasta",
+    body: "Gdynia otrzymuje prawa miejskie decyzją Rady Ministrów z 10 lutego 1926 roku, obowiązującą od 4 marca. To moment, od którego zaczyna się szybki rozwój miasta w nowoczesnej formie.",
+  },
+  {
+    year: "1934",
+    title: "Samodzielny port",
+    body: "Port w Gdyni uzyskuje pełną niezależność operacyjną. To jedna z najważniejszych decyzji gospodarczych w historii miasta, bo właśnie port staje się motorem jego wzrostu.",
   },
   {
     year: "1939",
-    title: "Port i modernizm",
-    body: "Nadmorska tożsamość zyskuje architektoniczną formę i skalę miejskiej odwagi.",
+    title: "Wojna przerywa rozwój",
+    body: "Po kapitulacji miasta Gdynia zostaje przemianowana na Gotenhafen, a mieszkańców dotykają wysiedlenia i represje. Dynamiczny rozwój miasta zostaje gwałtownie zatrzymany.",
   },
   {
-    year: "2026",
-    title: "Miasto pomiędzy historią a codziennością",
-    body: "Gdynia żyje intensywnie, ale wciąż zachowuje klarowność i relację z morzem.",
+    year: "1945",
+    title: "Odbudowa po zniszczeniach",
+    body: "Po wojnie rozpoczyna się odbudowa Gdyni i portu. Samo miasto było zniszczone stosunkowo mniej, ale port ucierpiał bardzo mocno, więc jego odbudowa stała się kluczowym zadaniem.",
   },
   {
-    year: "2086",
-    title: "Adaptacja klimatyczna i nowa mobilność",
-    body: "Przestrzeń miejska staje się bardziej responsywna, zielona i precyzyjnie projektowana.",
+    year: "1953",
+    title: "Początek nowej komunikacji",
+    body: "Uruchomienie elektrycznej kolei do Gdyni staje się przełomem dla codziennego życia mieszkańców i rozwoju całego Trójmiasta. To jeden z fundamentów późniejszej roli SKM.",
   },
   {
-    year: "2126",
-    title: "Archiwum przyszłości",
-    body: "Miasto działa jak płynny interfejs pamięci, natury i inteligentnej infrastruktury.",
+    year: "1970",
+    title: "Czarny Czwartek",
+    body: "Gdynia staje się jednym z najważniejszych miejsc protestów robotniczych w PRL. Wydarzenia grudnia 1970 roku na trwałe zapisują się w historii miasta i całego kraju.",
+  },
+  {
+    year: "2015",
+    title: "Ochrona modernistycznej Gdyni",
+    body: "Układ urbanistyczny śródmieścia Gdyni zostaje uznany za Pomnik Historii. To potwierdza wyjątkową wartość gdyńskiego modernizmu i wzmacnia ochronę tożsamości miasta.",
+  },
+  {
+    year: "2024–2035",
+    title: "Nowy etap rozwoju",
+    body: "W 2024 zakończono dużą modernizację kolejowego dostępu do portu, a na kolejne lata planowane są następne kluczowe inwestycje: Droga Czerwona, dalsza rozbudowa linii kolejowej do Gdyni oraz prace nad strategią rozwoju miasta do 2035 roku.",
   },
 ];
 

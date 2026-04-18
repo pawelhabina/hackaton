@@ -83,7 +83,7 @@ export function LocationDetailPanel({
                   </div>
                 </div>
                 <div className="rounded-full border border-white/12 bg-slate-950/45 px-4 py-2 text-xs uppercase tracking-[0.26em] text-slate-200 backdrop-blur-xl">
-                  placeholder ready
+                  materiał foto
                 </div>
               </div>
             </div>

@@ -4,22 +4,25 @@ import { CountUpNumber } from "./CountUpNumber";
 import { SilkBackground } from "./SilkBackground";
 
 const heroStats = [
-  { value: 6, label: "lokalizacji" },
-  { value: 3, label: "stany czasu" },
+  { value: 8, label: "stany czasu" },
   { value: 1, label: "wizja miasta" },
 ] as const;
 
 type HeroSectionProps = {
+  locationCount: number;
   onExploreMap: () => void;
   onExploreLocations: () => void;
   startCountUp: boolean;
 };
 
 export function HeroSection({
+  locationCount,
   onExploreMap,
   onExploreLocations,
   startCountUp,
 }: HeroSectionProps) {
+  const stats = [{ value: locationCount, label: "lokalizacji" }, ...heroStats];
+
   return (
     <section className="relative flex min-h-screen items-center overflow-hidden px-6 pb-18 pt-8 md:px-10 lg:px-12 xl:px-14">
       <motion.div
@@ -44,12 +47,12 @@ export function HeroSection({
         </div>
       </motion.div>
 
-      <div className="section-shell relative z-10 grid items-end gap-12 xl:gap-16 lg:grid-cols-[0.92fr_1.08fr]">
+      <div className="section-shell relative z-10 grid gap-12 lg:items-center lg:gap-10 lg:grid-cols-[0.96fr_1.04fr] xl:gap-12">
         <motion.div
           initial={{ opacity: 0, y: 30, filter: "blur(18px)" }}
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-          className="mx-auto flex max-w-[42rem] flex-col items-start lg:translate-x-10 lg:justify-self-end xl:translate-x-14 xl:max-w-[44rem]"
+          className="mx-auto flex max-w-[42rem] flex-col items-start lg:translate-x-4 lg:justify-self-end xl:translate-x-8 xl:max-w-[44rem]"
         >
           <div className="glass-panel inline-flex items-center gap-3 px-4 py-2 text-xs uppercase tracking-[0.34em] text-slate-200">
             <Sparkles className="h-4 w-4 text-cyan-200" />
@@ -98,26 +101,18 @@ export function HeroSection({
           initial={{ opacity: 0, x: 24, filter: "blur(16px)" }}
           animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
           transition={{ duration: 0.8, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
-          className="space-y-5 lg:w-full lg:max-w-[38rem] lg:justify-self-end xl:max-w-[41rem]"
+          className="space-y-5 lg:w-full lg:max-w-[34rem] lg:justify-self-center lg:-translate-x-8 lg:-translate-y-12 xl:max-w-[36rem] xl:-translate-x-6 xl:-translate-y-12"
         >
-          <div className="glass-panel-strong p-7 xl:p-8">
+          <div className="glass-panel-strong p-5 xl:p-8">
             <div className="flex items-center justify-between gap-4">
               <div>
-                <motion.p
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.55, delay: 0.2 }}
-                  className="text-xs uppercase tracking-[0.28em] text-slate-400"
-                >
-                  Tryb prezentacji
-                </motion.p>
                 <motion.p
                   initial={{ opacity: 0, y: 14 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.28 }}
                   className="mt-3 text-[clamp(2rem,3vw,2.8rem)] font-semibold tracking-[-0.04em] text-white"
                 >
-                  Atlas miejsc i przyszłości
+                  Muzeum nowoczesnego miasta
                 </motion.p>
               </div>
               <motion.div
@@ -129,7 +124,7 @@ export function HeroSection({
               </motion.div>
             </div>
             <div className="mt-7 grid grid-cols-3 gap-4 text-base text-slate-300">
-              {heroStats.map((stat, index) => (
+              {stats.map((stat, index) => (
                 <motion.div
                   key={stat.label}
                   initial={{ opacity: 0, y: 18, scale: 0.96 }}
@@ -155,16 +150,6 @@ export function HeroSection({
             </div>
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.48 }}
-            className="glass-panel p-6 text-base leading-8 text-slate-300"
-          >
-            Interfejs został zaprojektowany jak futurystyczne archiwum miejskie:
-            z warstwowym szkłem, subtelnym glow, miękkim ruchem i mapą, która
-            działa jak holograficzna plansza Gdyni.
-          </motion.div>
         </motion.div>
       </div>
     </section>
